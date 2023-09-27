@@ -58,6 +58,7 @@
 
     /* transitions */
     --global-transitionTiming-alpha: .1s ease-out;
+    --global-input-transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
 
     /* Baseline settings */
     --global-baseline: .5rem;
@@ -642,6 +643,76 @@ input::placeholder {
         background-color: var(--global-color-primary-600);
         box-shadow: none;
     }
+}
+
+/* .c-option--hidden:checked + .c-custom-option {
+      background-color: hotpink;
+  } */
+
+.c-option--hidden:checked + .c-custom-option .c-custom-option__symbol {
+    fill: var(--global-color-primary-500);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+.c-option--hidden:focus-visible + .c-custom-option .c-custom-option__fake-input {
+    border-color: var(--global-input-focus-borderColor);
+    box-shadow: var(--global-input-focus-boxShadow);
+  }
+
+.c-custom-option {
+    display: flex;
+
+    &:hover {
+        .c-custom-option__fake-input {
+            border-color: var(--global-input-hover-borderColor);
+        }
+    }
+}
+
+.c-custom-option__fake-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    border: var(--global-input-borderWidth) solid var(--global-input-borderColor);
+    margin-right: 0.5rem;
+}
+
+.c-custom-option__fake-input--checkbox {
+    border-radius: var(--global-borderRadius);
+}
+
+.c-custom-option__fake-input--radio {
+    border-radius: 100%;
+}
+
+.c-custom-option__symbol {
+    fill: var(--global-color-primary-500);
+    opacity: 0;
+    transform: scale(0);
+    transition: var(--global-input-transition);
+}
+
+.c-custom-option__fake-input--checkbox .c-custom-option__symbol {
+    width: .625rem;
+    height: .625rem;
+  }
+  
+.c-custom-option__fake-input--radio .c-custom-option__symbol {
+    width: .375rem;
+    height: .375rem;
+    background-color: var(--global-color-primary-500);
+    border-radius: 100%;
+}
+
+.c-option-list{
+    margin-bottom: 1.5rem;
+}
+
+.c-option-list__item{
+    margin-bottom: .75rem;
 }
 
 /*------------------------------------*\
