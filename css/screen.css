@@ -43,16 +43,18 @@
     --global-color-neutral-900: #35374d;
     --global-color-neutral-950: #20223a;
 
+    /* border stuff */
+    --global-borderRadius: 3px;
+    --global-borderWidth: 1px;
+
     /* global input variables */
+    --global-input-borderWidth: var(--global-borderWidth);
     --global-input-backgroundColor: White;
     --global-input-color: var(--global-color-neutral-950);
     --global-input-borderColor: var(--global-color-neutral-100);
     --global-input-hover-borderColor: var(--global-color-neutral-200);
     --global-input-focus-borderColor: var(--global-color-primary-500);
-
-    /* border stuff */
-    --global-borderRadius: 3px;
-    --global-borderWidth: 1px;
+    --global-input-focus-boxShadow: 0 0 0 3px var(--global-color-primary-500-alpha-30);
 
     /* transitions */
     --global-transitionTiming-alpha: .1s ease-out;
@@ -563,7 +565,7 @@ input::placeholder {
     -moz-appearance: none;
     appearance: none;
     width: 100%;
-    border: var(--global-borderWidth) solid var(--global-input-borderColor);
+    border: var(--global-input-borderWidth) solid var(--global-input-borderColor);
     border-radius: var(--global-borderRadius);
     color: var(--global-input-color);
     background-color: var(--global-input-backgroundColor);
@@ -581,7 +583,7 @@ input::placeholder {
     &:focus,
     &:active {
         border-color: var(--global-input-focus-borderColor);
-        box-shadow: 0 0 0 3px var(--global-color-primary-500-alpha-30);
+        box-shadow: var(--global-input-focus-boxShadow);
     }
 }
 
